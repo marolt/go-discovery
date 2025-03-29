@@ -11,13 +11,28 @@ import (
 	"github.com/marolt/go-discovery/pkg/report"
 )
 
+// Version information set by build process
+var (
+	version   = "dev"
+	buildTime = "unknown"
+)
+
 func main() {
+	// Add a version flag
+	showVersion := flag.Bool("version", false, "Show version information")
+
 	// Parse command line flags
 	outputFormat := flag.String("format", "yaml", "Output format: yaml or json")
 	outputFile := flag.String("output", "", "Output file (default: system_discovery_report.[yaml|json])")
 	logFile := flag.String("log", "system_discovery.log", "Log file")
 	logToStdout := flag.Bool("stdout", true, "Log to stdout as well as log file")
 	flag.Parse()
+
+	// Handle version flag
+	if *showVersion {
+		fmt.Printf("go-discovery version %s (built at %s)\n", version, buildTime)
+		return
+	}
 
 	// Setup logging
 	logWriter, err := os.Create(*logFile)
