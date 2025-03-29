@@ -1,0 +1,25 @@
+timestamp: "2025-03-29T14:06:16+01:00"
+hostname: Grintau-MacBook-Pro.local
+system_info:
+    os_name: macOS
+    os_version: 15.3.1
+    kernel: 24.3.0
+web_servers:
+    - type: Apache
+      status: Installed but not running
+      config_file: /private/etc/apache2/httpd.conf
+      document_roots:
+        - /Library/WebServer/Documents
+databases: []
+docker_containers:
+    - container_id: bc4ddf24212d
+      name: demo-web-1
+      image: demo-web
+      ports: []
+      volumes: []
+      networks:
+        - demo_default
+      managed_by: docker-compose
+      compose_project: demo
+      compose_service: web
+      compose_file: /Users/zigamarolt/Projects/demo/docker-compose.yml

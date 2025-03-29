@@ -1,0 +1,5 @@
+.idea
+.DS_Store
+*.log
+bin/
+system_discovery_report.yaml
